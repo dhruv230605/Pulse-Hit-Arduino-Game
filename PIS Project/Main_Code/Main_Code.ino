@@ -94,9 +94,9 @@ void selectDifficulty() {
   // Then loop until mode is selected
   while (!modeSelected) {
     lcd.clear();
-    lcd.print("Touch:Easy");
+    lcd.print("Touch : Easy");
     lcd.setCursor(0, 1);
-    lcd.print("Switch:Hard");
+    lcd.print("Switch : Hard");
 
     // Read sensor values
     touchValue = analogRead(tapItPin);
@@ -151,7 +151,9 @@ void loop() {
 
   // Display game start message
   lcd.clear();
-  lcd.print("Double Tap Start");
+  lcd.print("Double Press");
+  lcd.setCursor(0, 1);
+  lcd.print("to Start!");
 
   // Check for falling edge on start button (HIGH -> LOW)
   if (startButtonState == LOW && lastStartButtonState == HIGH) {
@@ -233,7 +235,7 @@ void loop() {
         Serial.println("Double Push!");
         
         lcd.clear();
-        lcd.print("Double Push!");
+        lcd.print("Double Press It!");
 
         timeOfPrompt = millis();
         timeElapsed = millis() - timeOfPrompt;
@@ -292,10 +294,10 @@ void loop() {
 
       // Turn It action
       else if (action == (isHardMode ? 5 : 3)) {
-        Serial.println("Turn It");
+        Serial.println("Twist It");
         
         lcd.clear();
-        lcd.print("Turn It!");
+        lcd.print("Twist It!");
 
         timeOfPrompt = millis();
         timeElapsed = millis() - timeOfPrompt;
